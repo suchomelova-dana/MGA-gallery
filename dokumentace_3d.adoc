@@ -1,0 +1,252 @@
+= Dokumentace 3d modelu v Blenderu
+
+Do blenderu jsem si vložila referenční fotku, vyfocenou ze předu, podle níž jsem vytvářela jednotlivé části.
+
+== Tělo hodin
+
+Tělo hodin jsem vytvořila z kostky.
+Pomocí nástroje bevel jsem zakulatila vrchní dva rohy tak, aby nahoře vznikl oblouk.
+
+Poté jse zduplikovala tento objekt, naškálovala a umístila na správnou polohu a pomocí modifikátoru booleen - difference jsem menší objekt odstranila z většího.
+
+Tímto postupem mi vzniklo duté tělo hodin. Tomu jsem pak přiřadila textury. Zvenčí textura světlého dřeva.
+Zevnitč jsem tělo rozdělila horizontálně pomocí faces a vrchní polovině přiřadila texturu béžového plyše a dolní polovině černé lesklé plochy.
+
+[cols="a,a,a", frame=none, grid=none]
+|===
+| image::3d/telo.png[]
+| image::3d/telo2.png[]
+| image::3d/telo3.png[]
+|===
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::3d/textura_drevo_svetle.png[]
+| image::3d/textura_drevo_svetle2.png[]
+|===
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::3d/textura_cerna_leskla.png[]
+| image::3d/textura_cerna_leskla2.png[]
+|===
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::3d/textura_plys.png[]
+| image::3d/textura_plys2.png[]
+|===
+
+
+== Kyvadlo
+
+Kyvadlo jsem vytvořila z cylindru. Ten jsem si rozdělila více hranami a zploštila po okrajích a opět zaoblila pomocí bevelu.
+Také jsem použila subdivision surface pro hladší povrch.
+
+Jako texturu jsem použila foto.
+
+[cols="a, a, a", frame=none, grid=none]
+|===
+| image::3d/kyvadlo.png[]
+| image::3d/kyvadlo3.png[]
+| image::3d/kyvadlo2.png[]
+|===
+
+[cols="a, a", frame=none, grid=none]
+|===
+| image::3d/textura_kyvadlo2.png[]
+| image::3d/textura_kyvadlo3.png[]
+|===
+
+== Ciferník
+
+Ciferník jsem vymodelovala pomocí cylindru.
+Opět jsem od modelu odečetla pomocí rozdílu menší cylinder tak, aby vznikla tenká hrana po obvodu kruhu.
+
+[cols="a, a, a", frame=none, grid=none]
+|===
+| image::3d/cifernik.png[]
+| image::3d/cifernik2.png[]
+| image::3d/cifernik3.png[]
+|===
+
+Opět jsem použila 2 různé textury na jednotlivé facy objektu.
+
+Střed cylindru a hrana po obvodu kruhu i se zadní stranou jsou zlatou barvou.
+Jedná se o poměrně matný metalický povrch, který jsem doladila nedokonalostmi pomocí obrázkové mapy, na které jsou škrábance.
+
+[cols="a, a, a", frame=none, grid=none]
+|===
+| image::3d/textura_cifernik_stred.png[]
+| image::3d/skrabance.jpg[]
+| image::3d/cifernik_stred.png[]
+|===
+
+Pro část ciferníku, kde jsou čísla, jsem zvolila obrázek z vektorizace.
+
+[cols="a, a, a", frame=none, grid=none]
+|===
+| image::3d/textura_cifernik_stribrna.png[]
+| image::3d/textura_cifernik_cisla.png[]
+| image::3d/cifernik_stribrna.png[]
+|===
+
+== Ručičky
+
+Obě hodinové ručičky jsem vytvořila z kvádru. Vztvořila jsem vnější tvar ručičky, poté tvar díry a pomocí rozdílu jsem vytvořila díry.
+K malé ručičce jsem ještě přidala kroužek vztvořený z cylindru, také pomocí operace rozdílu.
+
+[cols="a, a, a, a", frame=none, grid=none]
+|===
+| image::3d/rucicka_mala.png[]
+| image::3d/rucicka_velka.png[]
+| image::3d/rucicky.png[]
+| image::3d/rucicky2.png[]
+|===
+
+Pro ručičky stačil jedoduchý materiál, kde jsem změnila barvu na tmavou.
+
+[cols="a, a", frame=none, grid=none]
+|===
+| image::3d/textura_rucicky.png[]
+| image::3d/textura_rucicky2.png[]
+|===
+
+Zde je mezifáze
+
+[cols="a", frame=none, grid=none]
+|===
+| image::3d/mezifaze.png[]
+|===
+
+== Rám
+
+Rám byl pro mě asi nejobtížnější (jak na modelování, tak na textury).
+
+Začala jsem s obyčejnou kostkou. Pomocí custom bevel zaoblení jsem vytvořila tvar připomínající zaoblení rámu.
+
+Při modelování rámu jsem využila mirror modifier díky symetričnosti hodin.
+Modelovala jsem pak jen půlku a bylo to rychlejší.
+
+Zejména tady jsem využila mé referenční fotky v pozadí.
+
+Zaoblenou kostku jsem vždy vytáhla (prodloužila) pomocí extrude, tak aby tvar odpovídal referenci.
+Plochu kostky jsem pak naklopila pomocí shear a poté jsem mohla opět vytahovat plochu pomocí extrude v jiném směru.
+Takto jsem postupovala až do chvíle, kdy bylo potřeba vytvořit oblouk.
+
+Oblouk ve vrchní řásti jsem vytvořila pomocí nástroje spin.
+
+[cols="a, a ", frame=none, grid=none]
+|===
+| image::3d/ram_custom_bevel.png[]
+| image::3d/ram.png[]
+|===
+
+V modifieru mirror jsem si nastavila mergování, abych pčes sebe neměla více objektu.
+
+Na rám jsem nastavila shade auto smooth, aby zaoblené hrany byly hladké, ale ostré hrany zůstaly ostré.
+
+Ze zadní strany rámu jsem pomocí vybrání bodů vložila stěnu. A celou zadní stěnu jsem pomocí extrude vytáhla tak, aby měla nějakou tloušťku.
+
+
+[cols="a, a, a", frame=none, grid=none]
+|===
+| image::3d/ram2.png[]
+| image::3d/shade_auto_smooth.png[]
+| image::3d/ram3.png[]
+|===
+
+Poslední věc z modelování předních dveří hodin byly otvory na ciferník a kyvadlo.
+Útvary jsem vytvořila z cylindrů a poté je pomocí operace rozdíl odečetla od dveří hodin.
+
+[cols="a, a, a, a", frame=none, grid=none]
+|===
+| image::3d/ram_diry.png[]
+| image::3d/ram_diry2.png[]
+| image::3d/ram_diry3.png[]
+| image::3d/ram_diry4.png[]
+|===
+
+U otvorů jsem vytvořila stěny jako sklo, a také kolem otvorů jsem vytáhla tenký proužek jako výstupek.
+
+[cols="a", frame=none, grid=none]
+|===
+| image::3d/ram_sklo.png[]
+|===
+
+Objekt má opět přiřazen různé materiály a textury.
+
+Rám a výstupku kolem otvorů jsou ze zlaté textury.
+
+[cols="a, a, a", frame=none, grid=none]
+|===
+| image::3d/textura_ram.png[]
+| image::3d/textura_ornamenty.png[]
+| image::3d/textura_ornamenty2.png[]
+|===
+
+=== Textura tmavého dřeva
+
+Pro texturu tmavého dřeva jsem použila již vytvořenou teturu světlého dřeva na těle hodin, jen jsem změnila barvy.
+A také jsem připojila obrázek ornamentů, který jsem namapovala na spodní polovinu hodin. Ornamenty jsem z fotky pomocí maskování v gimpu ořezala.
+[cols="a", frame=none, grid=none]
+|===
+| image::3d/textura_drevo_tmave.png[]
+|===
+
+=== Textura zlatého rámu
+
+U zlatého rámu jsem se snažila udělat co nejvíce nedokonalostí, aby se nejednalo pouze o naleštěnou lesklou zlatou plochu.
+Nedokonasli jsem vytvořla opět za pomocí obrázku škrábanců využitou již dříve a také pomocí musgrave textury.
+
+[cols="a", frame=none, grid=none]
+|===
+| image::3d/textura_zlata.png[]
+|===
+
+=== Textura skla
+
+Pro sklo je v blenderu předpřipravená textura, takže stačilo přidat nedokonalosti.
+Opět jsem použila mapu škrábanců z obrázku a tentokrát jsem přidala noise texture.
+
+[cols="a, a", frame=none, grid=none]
+|===
+| image::3d/textura_sklo.png[]
+| image::3d/textura_sklo2.png[]
+|===
+
+== Výsledný render
+
+[cols="a", frame=none, grid=none]
+|===
+| image::3d/render3.png[]
+|===
+
+== Render detailu
+
+[cols="a", frame=none, grid=none]
+|===
+| image::3d/render5.png[]
+|===
+
+
+== Render s osobou
+[cols="a", frame=none, grid=none]
+|===
+| image::3d/render4.png[]
+|===
+
+Render s osobou je trochu odfláknutý, protože jsem neměla tolik času na vyřešení osvícení tak, aby scéna působila věrohodně.
+Ale kompozice sedí a hodiny vrhají stín na zeď, takže kromě světel by to mělo být v pořádku.
+
+Vložila jsem oříznutou fotku osoby z úkolu bitmapy.
+
+Vytvořila jsem 3 velké kostky, které jsem natočila tak, aby vznikl roh. A dala jim texturu bílé zdi.
+
+[cols="a, a", frame=none, grid=none]
+|===
+| image::3d/textura_stena.png[]
+|===
+
+Ještě jsem vložilap poslední fotku, která se odráží ve skle hodin.
+

@@ -1,0 +1,355 @@
+= Dokumentace Vektorizace
+
+== Automatická vektorizace
+
+Pro automatickou vektorizaci jsem použila ořezaný bitmapový obrázek bez pozadí.
+
+Automatickou vektorizaci jsem dělala přes nástroj Cesta -> vektorizovat bitmapu
+
+Zvolila jsem nastavení oříznutí jasu a hodnotu Prahová hodnota jasu 250.
+
+[cols="a,a,a", frame=none, grid=none]
+|===
+| image::vector/hodiny_orez_tmave.JPG[]
+| image::vector/automaticka_vektorizace_nastaveni.png[]
+| image::vector/auto_vektorizace.png[]
+|===
+
+== Vektorizace obtahem
+
+=== Základní tvar hodin
+Pracovala jsem tak, že jsem si vložila referenční fotku, kde jsem umazala část pozadí, jen aby nepřekáželo.
+
+Tento vzor jsem měla vždy v zadní vrstvě, a v nové přední vrstvě jsem vždy pracovala na určité části vektorizace.
+Nově vytvořené vrstvy jsem si někdy zneviditelnila, abych vždy viděla vzorový obrázek a mohla obtahovat tvary.
+Vždy jsem si udělala základní zjednodušený tvar rovnými křivkami a poté upravovala (zakulatila) křivky na požadovaný tvar.
+
+Nejdříve jsem začala základním tvarem hodin a vyplnila zlato-hnědou barvou, jako má rám hodin.
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/foto_vzor.png[]
+| image::vector/obtah_zakl_tvar.png[]
+|===
+
+Poté jsem přešla v vytvoření dřevěné části hodin a tmavého půlměsíce, kde bude kyvadlo.
+Nejdříve jsem chtěla vytvořit tvar půlměsíce a ten navrstvit na tmavé dřevěné hodiny.
+To by mi ale vytvořilo problém u kyvadla - vrstva kyvadlo bude muset být nad šedým půlměsícem, ale zároveň pod hnědými hodinami, aby byl vrch kyvadla schovaný.
+Což by vytvořilo smyčku ve vrstvách, tedy to bylo nemožné.
+
+Proto jsem zvolila jiný postup. Vytvořila jsem si křivkami hnědou část hodin a zkopírovala si ji.
+V jedné kopii jsem si zvlášť vytvořila ještě tvar půlměsíce a pomocí rozdílu odstranila z tvaru hodin půlměsíc. Mám tedy hnědé hodiny s dírou pro půlměsíc.
+Druhou kopii jsem vyplnila tmavě šedou barvou a dala pod předchozí vrstvou, tak aby přes díru s tmavých hodinách prosvítala šedá barva půlměsíce.
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_vnitrni_cerna.png[]
+| image::vector/obtah_vnitrni_tmava.png[]
+|===
+
+Výsledkem navrstvení dosavadních částí mi vznikl zlatý rám hodin a tmavý půlměsíc prosvítající přes odstraněnou část tmavě hnědých menších hodin.
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/obtah_hodiny_telo.png[]
+|===
+
+=== Kyvadlo
+
+Díky předchozímu návrhu mohu vytvořit kyvadlo tak, že jeho vrstvo vložím mezi vrstvu půlměsíce a hnědých hodin.
+
+Kyvadlo jsem rozdělali na dvě části - větší nakloněnou plochu a menší rovnou plochu.
+Větší nakloněnou plochu jsem vybplnila přechodem z tmavé do světlejší barvy a dala mírně průhlené. pod kyvadlem je tmavě šedá plocha, se kterou dohromady vytvoří požadovanou barvu.
+Na menší vnitřejší část kyvadla jsem taktéž použila přechod.
+Také jsem přidala 2 stíny hodin přes kyvadlo tmavou barvou s mírnou průhledností - jeden tmavší a užší a druhý světlejší a širší.
+
+[cols="a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kyvadlo_velke.png[]
+| image::vector/obtah_kyvadlo_male.png[]
+| image::vector/obtah_kyvadlo_stin.png[]
+|===
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/obtah_hodiny_a_kyvadlo.png[]
+|===
+
+=== Kruh pro ciferník
+
+Dále jsem přešla ke kruhům, kde bude ciferník.
+Začala jsem tmavým kruhem, který má představovat zahnutou plochu do hloubky, jelikož hodiny nejsou foceny úplně zepředu.
+Držela jsem se předlohy, takže jsem i ve vektorizaci zachytila úhel focení.
+Tím pádem není zlatý obrys tmavého kruhu na prostředku, ale více na levé straně.
+Pokračovala jsem stříbrným kruhem. Tam jsem přidala přechod, který znázorňuje odlesk světla jako na předloze.
+Nakonec jsem udělala zlatý vnitřní kruh.
+
+Kruhy jsem dělala také přes křivky, takže nejsou 100% kulaté.
+
+[cols="a,a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kruh_zahyb.png[]
+| image::vector/obtah_kruh_vnejsi_zlata.png[]
+| image::vector/obtah_kruh_stribrny.png[]
+| image::vector/obtah_kruh_zlaty.png[]
+|===
+
+Dále jsem přidala tenké obrysykroužků jako detaily. Jeden kolem malého zlatého kruhu a druhý z vnitřní strany stříbrného kruhu.
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kruhy.png[]
+| image::vector/obtah_kruhy_krouzky.png[]
+|===
+
+=== Ručičky hodin
+
+Nejdříve jsem udělala střední kruh.
+Velkou ručičku jsem vytvořila tak, že jsem pomocí křivek udělala tvar a poté rozdílem smazala díru ručičky.
+Malou ručičku jsem vytvořila stejným způsobem, jen jsem ji poté ještě sjednotila s kruhem.
+
+[cols="a,a,a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_rucicky_predloha.png[]
+| image::vector/obtah_rucicky_krouzek.png[]
+| image::vector/obtah_rucicky_velka.png[]
+| image::vector/obtah_rucicky_mala_rucicka.png[]
+| image::vector/obtah_rucicky_mala_krouzek.png[]
+|===
+
+Přidala jsem dva kroužky na stranách stříbrného kruhu - kroužky na natahování hodin.
+Detaily jako písmo na hodinách, které jsem nemohla přečíst jsem vynechala.
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_rucicky.png[]
+| image::vector/obtah_rucicky_a_krouzky.png[]
+|===
+
+Tady je mezivýsledek
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/obtah_hodiny_az_rucicky.png[]
+|===
+
+=== Čísla
+
+Pomocí textu jsem si vytvořila jedno číslo a našla jsem nejpodobnější font - Gabriola.
+Poté jsem si číslo nakopírovala a přepsala na čísla od 1 do 12. Některá jsem trochu zúžila nebo upravila tak, aby co nejvíce seděli předloze.
+Zjistila jsem, že může být problém s fontem, pokud font není na počítači, kde je svg zobrazováno, a tak jsem čísla převedla na cesty.
+
+[cols="a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_cisla_predloha.png[]
+| image::vector/obtah_cisla_text.png[]
+| image::vector/obtah_cisla_cesty.png[]
+|===
+
+=== Rám hodin
+
+Abych přidala detail rámu hodin, přidala jsem několik různě širokých a barevných křivek, které kopírují záklaní tvar hodin.
+Snažila jsem se napodobit záhyby podle vzorového obrázku, tedy opět jsem si vytvořila nové vrstvy nad referenční fotkou a křivkami obtahovala.
+Mezivýsledky ukážu už ve vektorizaci, aby byly pořádně vidět.
+
+[cols="a,a,a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_hodiny_cary1.png[]
+| image::vector/obtah_hodiny_cary2.png[]
+| image::vector/obtah_hodiny_cary3.png[]
+| image::vector/obtah_hodiny_cary4.png[]
+| image::vector/obtah_hodiny_cary5.png[]
+|===
+
+=== Kytky na rámu
+
+Jednou z posledních věcí, co ještě chybí jsou ozdoby kytek na rámu hodin.
+Opět jsem podle referenční fotky napodobovala zakřivení křivek. Samozřejmě je tam spousta detailu, takže jsem tvary hodně zjednodušovala.
+Výplně jednotlivých objektů jsou přechody různých odstínů hnědé.
+
+[cols="a,a,a,a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kytky_vrchni1.png[]
+| image::vector/obtah_kytky_vrchni2.png[]
+| image::vector/obtah_kytky_vrchni3.png[]
+| image::vector/obtah_kytky_vrchni4.png[]
+| image::vector/obtah_kytky_vrchni5.png[]
+| image::vector/obtah_kytky_vrchni6.png[]
+|===
+
+Nakonec jsem ještě přidala novou vrstvu, kde jsem křivkami napodobila stín ornamentu kytek na rámu.
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kytky_vrchni.png[]
+| image::vector/obtah_kytky_vrchni_stin.png[]
+|===
+
+Stejným způsobem jsem udělala spodní ozdobu na rámu.
+
+
+[cols="a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kytky_spodni_vzor.png[]
+| image::vector/obtah_kytky_spodni1.png[]
+| image::vector/obtah_kytky_spodni2.png[]
+|===
+
+Opět jsem přidala stín a sponu a tentoktát i rýhy, abych dodala trochu detailu.
+
+[cols="a,a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kytky_spodni3.png[]
+| image::vector/obtah_kytky_spodni4.png[]
+| image::vector/obtah_kytky_spodni5.png[]
+| image::vector/obtah_kytky_spodni6.png[]
+|===
+
+=== Malba na dřevě
+
+Poslední a nejobtížnější věcí po mě byly zlaté detaily na dřevěném těle hodin.
+
+Nejdříve jsem udělala čáry a křivky - ty byly snadno proveditelné pouze pomocí křivek.
+
+[cols="a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_cary_vzor.png[]
+| image::vector/obtah_cary1.png[]
+| image::vector/obtah_cary2.png[]
+|===
+
+Poté zbyly jen malůvky kytek.
+Jelikož jsou hodiny téměř symetrické, rozhodla jsem se udělat jen pravou polovinu, a tu poté zkopírovat a převrátit na levou stranu.
+Tímto způsoběm jsem vytvořila všechny květy, kromě těch prostředních.
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kytky_uprostred_vzor.png[]
+| image::vector/obtah_kytky_uprostred.png[]
+|===
+
+[cols="a,a,a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kytky_vravo_nahore_vzor.png[]
+| image::vector/obtah_kytky_vravo_nahore.png[]
+| image::vector/obtah_kytky_pravo_dole_vzor.png[]
+| image::vector/obtah_kytky_pravo_dole.png[]
+|===
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/obtah_kytky_prava_pulka.png[]
+| image::vector/obtah_kytky_vlevo.png[]
+|===
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/obtah_finalni.png[]
+|===
+
+== Vektorizace překryvem
+
+Ačkoliv vektorizace překryvem vypadá téměř identicky s vektorizací obtahem, opravdu se jedná o dva rozdílné projekty.
+Některé části (hlavně detailní ornamenty) jsem použila z úkolu obtahem, ale hlavní části byly vytvořeny pomocí techniky překryvu.
+Základní tvary jsem si nejdříve obarvovala různými barvami, aby se mi s nmi lépe pracovalo, a až poté jsem je obarvila na požaovanou barvu.
+
+=== Tělo hodin
+
+Pro tělo jsem používala tvary kruhu a obdélníku, které jsem binárními operacemi upravovala.
+Opět jako v první úkolu jsem v pozadí měla referenční fotku.
+
+Pro největší rám hodin jsem vytvořila obdélník a kruh a sjednotila je.
+To stejné jsem udělala ještě jednou, ale ve zmenšené podobě.
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::vector/prekryv_telo.png[]
+| image::vector/prekryv_telo2.png[]
+|===
+
+Poté jse udělala výřez v těle hodin pro kyvadlo.
+Tomu jsem pomocí úpravy bodů a křivek zakulatila rohy.
+
+[cols="a,a,a", frame=none, grid=none]
+|===
+| image::vector/prekryv_vyrez.png[]
+| image::vector/prekryv_vyrez2.png[]
+| image::vector/prekryv_vyrez3.png[]
+|===
+
+Výsledný výřez jsem pomocí operace rozdílu odečetla od obou rámů těla.
+
+=== Ciferník a kyvadlo
+
+Ciferník byl jednodušší než v úkolu obtahem, protože stačilo udělat několik překrývajících se kruhů.
+To stejné platí i pro kyvadlo.
+Obdobným způspbem jsem vytvořila jednoduché části ručiček.
+
+[cols="a, a", frame=none, grid=none]
+|===
+| image::vector/prekryv_cifernik.png[]
+| image::vector/prekryv_rucicky.png[]
+|===
+
+Jednotlivé doposud vytvořené části jsem obarvila požadovanými barvami.
+Vložila jsem do ciferníku čísla z úkolu obtahem a tady je mezivýsledek.
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/prekryv_mezifaze.png[]
+|===
+
+Vložila jsem černý kruh s průhledností, jako stín otvoru na kyvadlo.
+Na ciferníku a kyvadle jsem upravila jednolité barvy na barevné přechody.
+A operací rozdílu jsem odečela z rámu 3 obdélníky (2 v dolních rozích pro zkosení stran a jeden na výřez na vršku rámu).
+
+
+[cols="a, a, a", frame=none, grid=none]
+|===
+| image::vector/prekryv_mezifaze.png[]
+| image::vector/prekryv_mezifaze2.png[]
+| image::vector/prekryv_mezifaze5.png[]
+|===
+
+=== Detaily
+
+Zbytek detailů (ručičky, ornamenty na dřevě a kytičky) jsem zkopírovala z úkolu obrysu.
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/prekryv_zkopirovano.png[]
+|===
+
+Všimla jsem si nedokonalého tvaru u průřezu otvoru na kyvadlo, takže jsem vložila tvar kruhu stejné barvy jako základ tmavého dřeva.
+
+[cols="a, a", frame=none, grid=none]
+|===
+| image::vector/prekryv_otvor.png[]
+| image::vector/prekryv_otvor2.png[]
+|===
+
+Opět jsem pomcí sjednocení obdélníku a kruhu vytvořila základní tvar.
+Vytvořila jsem jich několik v různých velikostech. Každý jsem obarvila jiným odstínem hnědé barvy.
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/prekryv_ram.png[]
+|===
+
+Poslední věc jsou tenké kroučky v ciferníku.
+Ty jsem udělala pomocí tvaru kruhu, který měl jen obrys a ne výplň.
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/prekryv_kruhy_cifernik.png[]
+|===
+
+
+Zde je hotová práce překryvem.
+
+
+[cols="a", frame=none, grid=none]
+|===
+| image::vector/vektor_tvary_finalni.png[]
+|===
+
+
